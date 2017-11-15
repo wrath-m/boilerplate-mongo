@@ -4,7 +4,7 @@ dir="$(dirname "$0")"
 . "$dir/../docker.config"
 srcFolder="$(realpath "$dir/../src")"
 
-runCommand="docker run -v "$srcFolder:/usr/src" -dit --name "$dockerContainerName""
+runCommand="docker run --privileged -v "$srcFolder:/usr/src" -dit --name "$dockerContainerName""
 if [[ "$dockerOptions" ]]; then
     runCommand="$runCommand $dockerOptions"
 fi
